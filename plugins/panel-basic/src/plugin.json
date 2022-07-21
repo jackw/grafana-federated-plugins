@@ -1,0 +1,35 @@
+{
+  "$schema": "https://raw.githubusercontent.com/grafana/grafana/jackw/webpack-federated-modules/docs/sources/developers/plugins/plugin.schema.json",
+  "type": "panel",
+  "name": "Feddie Rated Panel",
+  "id": "heywesty-feddierated-panel",
+  "moduleLoader": "federated",
+  "info": {
+    "description": "A grafana plugin that uses webpack 5 federated modules",
+    "author": {
+      "name": "Jack Westbrook"
+    },
+    "keywords": ["panel", "federated modules", "experimental"],
+    "logos": {
+      "small": "img/logo.svg",
+      "large": "img/logo.svg"
+    },
+    "links": [
+      {
+        "name": "Website",
+        "url": "https://github.com/grafana/grafana-starter-panel"
+      },
+      {
+        "name": "License",
+        "url": "https://github.com/grafana/grafana-starter-panel/blob/master/LICENSE"
+      }
+    ],
+    "screenshots": [],
+    "version": "%VERSION%",
+    "updated": "%TODAY%"
+  },
+  "dependencies": {
+    "grafanaDependency": ">=8.3.4",
+    "plugins": []
+  }
+}

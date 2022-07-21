@@ -1,0 +1,28 @@
+{
+  "extends": "@nrwl/workspace/presets/npm.json",
+  "npmScope": "grafana-federated-module-plugins",
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "test", "lint"]
+      }
+    }
+  },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
+  },
+  "affected": {
+    "defaultBase": "main"
+  },
+  "pluginsConfig": {
+    "@nrwl/js": {
+      "analyzeSourceFiles": false
+    }
+  }
+}
