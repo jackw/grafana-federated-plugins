@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/grafana/grafana/jackw/webpack-federated-modules/docs/sources/developers/plugins/plugin.schema.json",
   "type": "panel",
   "name": "Feddie Rated Panel",
-  "id": "heywesty-feddierated-panel",
+  "id": "myorg-panel-basic",
   "moduleLoader": "federated",
   "info": {
     "description": "A grafana plugin that uses webpack 5 federated modules",

@@ -1,19 +1,17 @@
 {
-  "$schema": "https://raw.githubusercontent.com/grafana/grafana/master/docs/sources/developers/plugins/plugin.schema.json",
+  "$schema": "https://raw.githubusercontent.com/grafana/grafana/jackw/webpack-federated-modules/docs/sources/developers/plugins/plugin.schema.json",
   "type": "datasource",
-  "name": "Datasource Basic",
+  "name": "Feddie Rated Datasource",
   "id": "my-org-datasource-basic",
   "metrics": true,
-  "backend": true,
+  "moduleLoader": "federated",
   "executable": "gpx_datasource_basic",
   "info": {
     "description": "This is a sample datasource using federated modules",
     "author": {
       "name": "My org"
     },
-    "keywords": [
-      "datasource"
-    ],
+    "keywords": ["datasource"],
     "logos": {
       "small": "img/logo.svg",
       "large": "img/logo.svg"

@@ -24,6 +24,7 @@ const config = (env) =>
     externals: [],
     output: {
       publicPath: `/public/plugins/${pluginName}/`,
+      uniqueName: pluginName,
     },
     plugins: [
       new container.ModuleFederationPlugin({

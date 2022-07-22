@@ -1,5 +1,5 @@
 {
-  "name": "datasource-basic",
+  "name": "my-org-datasource-basic",
   "version": "1.0.0",
   "description": "This is a sample datasource using federated modules",
   "scripts": {
