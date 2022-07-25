@@ -12,6 +12,7 @@
     ]
   },
   "id": "redis-app",
+  "moduleLoader": "federated",
   "includes": [
     {
       "addToNav": true,
