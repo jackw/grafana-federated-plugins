@@ -1,7 +1,7 @@
 {
   "type": "datasource",
   "name": "SQLite",
-  "id": "frser-sqlite-datasource",
+  "id": "my-org-sqlite-datasource",
   "metrics": true,
   "backend": true,
   "alerting": true,
