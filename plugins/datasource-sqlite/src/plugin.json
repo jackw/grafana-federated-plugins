@@ -1,24 +1,20 @@
 {
   "type": "datasource",
-  "name": "SQLite",
+  "name": "SQLite Datasource (Federated Modules)",
   "id": "my-org-sqlite-datasource",
   "metrics": true,
   "backend": true,
   "alerting": true,
   "category": "sql",
   "executable": "gpx_sqlite-datasource",
+  "moduleLoader": "federated",
   "info": {
-    "description": "SQLite as a (Backend) Datasource",
+    "description": "SQLite as a (Backend) Datasource using federated modules",
     "author": {
       "name": "Sergej Herbert",
       "url": "https://github.com/fr-ser"
     },
-    "keywords": [
-      "sqlite",
-      "sql",
-      "raspberry",
-      "arm"
-    ],
+    "keywords": ["sqlite", "sql", "raspberry", "arm"],
     "logos": {
       "small": "img/logo.svg",
       "large": "img/logo.svg"
