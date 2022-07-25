@@ -1,0 +1,42 @@
+version: '3.6'
+
+services:
+  grafana:
+    image: grafana/grafana:${GRAFANA_VERSION:-8.1.0}
+    # uncomment to install a comma separated list of plugins
+    # environment:
+    #   GF_INSTALL_PLUGINS: grafana-worldmap-panel
+    volumes:
+      - './grafana_config/data.db:/app/data.db'
+      - './grafana_config/grafana.ini:/etc/grafana/grafana.ini'
+      - './grafana_config/datasource.yaml:/etc/grafana/provisioning/datasources/datasource.yaml'
+      - './grafana_config/dashboard.yaml:/etc/grafana/provisioning/dashboards/dashboard.yaml'
+      - './grafana_config/dashboards/alert.json:/app/dashboards/alert.json'
+      - './grafana_config/dashboards/graph_and_variables.json:/app/dashboards/graph_and_variables.json'
+      - './grafana_config/dashboards/query_and_repitition.json:/app/dashboards/query_and_repitition.json'
+      - './dist:/var/lib/grafana/plugins/frser-sqlite-datasource'
+    ports:
+      - 3000:3000
+    depends_on:
+      - postgres
+  selenium:
+    image: selenium/standalone-chrome:84.0
+    shm_size: 2gb
+    ports:
+      - 4444:4444
+      - 5900:5900
+    environment:
+      VNC_NO_PASSWORD: '1'
+  start-setup:
+    image: dadarek/wait-for-dependencies:0.2
+    depends_on:
+      - grafana
+      - selenium
+    command: grafana:3000 selenium:4444
+  postgres:
+    # used to compare the sqlite plugin
+    image: postgres:12-alpine
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=changed_later
+      - POSTGRES_DB=db_name

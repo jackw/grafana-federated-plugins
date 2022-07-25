@@ -1,0 +1,41 @@
+{
+  "name": "my-org-sqlite-datasource",
+  "description": "SQLite as a (Backend) Datasource",
+  "version": "0.0.0-replaced-in-ci-cd",
+  "scripts": {
+    "build": "grafana-toolkit plugin:build",
+    "test": "grafana-toolkit plugin:test",
+    "dev": "grafana-toolkit plugin:dev",
+    "watch": "grafana-toolkit plugin:dev --watch",
+    "sign": "grafana-toolkit plugin:sign",
+    "start": "yarn watch"
+  },
+  "author": "Sergej Herbert",
+  "license": "Apache-2.0",
+  "repository": "https://github.com/fr-ser/grafana-sqlite-datasource.git",
+  "devDependencies": {
+    "@grafana/data": "latest",
+    "@grafana/runtime": "latest",
+    "@grafana/toolkit": "latest",
+    "@grafana/ui": "latest",
+    "@testing-library/dom": "^8.0.0",
+    "@testing-library/jest-dom": "^5.0.0",
+    "@testing-library/react": "^12.0.0",
+    "@testing-library/user-event": "^13.0.0",
+    "@types/jest": "^27.0.0",
+    "@types/lodash": "latest",
+    "@types/selenium-webdriver": "^4.0.9",
+    "chromedriver": "^84.0.0",
+    "jest-environment-jsdom-sixteen": "^2.0.0",
+    "selenium-webdriver": "^4.0.0-alpha.7"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "resolutions": {
+    "rxjs": "7.3.0"
+  },
+  "jest": {
+    "testEnvironment": "jest-environment-jsdom-sixteen"
+  }
+}
