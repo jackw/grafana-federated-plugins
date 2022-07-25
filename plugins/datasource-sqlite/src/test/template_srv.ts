@@ -95,4 +95,12 @@ export class TemplateSrv {
   getVariables(): VariableModel[] {
     return this.variables;
   }
+
+  containsTemplate(target?: string): boolean {
+    return false;
+  }
+
+  updateTimeRange(timeRange: TimeRange): void {
+    return;
+  }
 }

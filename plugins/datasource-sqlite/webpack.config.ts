@@ -59,6 +59,7 @@ const config = (env) =>
         tty: false,
         util: false,
         indexof: false,
+        fs: false,
       },
     },
   } as Configuration);
