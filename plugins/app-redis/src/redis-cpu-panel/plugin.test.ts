@@ -1,11 +1,10 @@
 import { PanelPlugin } from '@grafana/data';
-import { ViewMode } from './constants';
-import { plugin } from './module';
+import { plugin } from './plugin';
 
 /**
- * Latency Panel
+ * CPU Panel
  */
-describe('RedisLatencyPanel', () => {
+describe('RedisCPUPanel', () => {
   it('Should be instance of PanelPlugin', () => {
     expect(plugin).toBeInstanceOf(PanelPlugin);
   });
@@ -17,19 +16,13 @@ describe('RedisLatencyPanel', () => {
     const builder: any = {
       addSliderInput: jest.fn().mockImplementation(() => builder),
       addRadio: jest.fn().mockImplementation(() => builder),
-      addBooleanSwitch: jest.fn().mockImplementation((config) => ({
-        ...builder,
-        switchField: config,
-      })),
     };
 
-    const result = plugin['optionsSupplier'](builder);
+    plugin['optionsSupplier'](builder);
 
     /**
      * Interval
      */
     expect(builder.addSliderInput).toHaveBeenCalled();
-    expect(result.switchField.showIf({ viewMode: ViewMode.Graph })).toBeTruthy();
-    expect(result.switchField.showIf({ viewMode: ViewMode.Table })).not.toBeTruthy();
   });
 });

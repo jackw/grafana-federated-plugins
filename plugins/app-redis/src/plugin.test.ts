@@ -1,5 +1,5 @@
 import { AppPlugin } from '@grafana/data';
-import { plugin } from './module';
+import { plugin } from './plugin';
 
 /*
  Plugin

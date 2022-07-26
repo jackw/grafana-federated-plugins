@@ -1,5 +1,5 @@
 import { PanelPlugin } from '@grafana/data';
-import { plugin } from './module';
+import { plugin } from './plugin';
 
 /**
  * RedisGears Panel
