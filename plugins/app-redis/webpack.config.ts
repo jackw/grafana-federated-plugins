@@ -7,6 +7,19 @@ const pluginPackageDeets = require('./package.json');
 const deps = pluginPackageDeets.dependencies;
 const pluginName = pluginPackageDeets.name;
 
+const sharedDeps = {
+  ...deps,
+  '@emotion/css': { singleton: true, requiredVersion: deps['@emotion/css'] },
+  '@emotion/react': { singleton: true, requiredVersion: deps['@emotion/react'] },
+  react: { singleton: true, requiredVersion: deps.react },
+  'react-dom': { singleton: true, requiredVersion: deps['react-dom'] },
+  '@grafana/data': { singleton: true },
+  '@grafana/e2e-selectors': { singleton: true },
+  '@grafana/runtime': { singleton: true },
+  '@grafana/schema': { singleton: true },
+  '@grafana/ui': { singleton: true },
+};
+
 const config = (env) =>
   mergeWithCustomize({
     customizeArray: customizeArray({
@@ -19,10 +32,16 @@ const config = (env) =>
   })(grafanaConfig(env), {
     entry: {
       plugin: './plugin.ts',
+      'redis-cli-panel/plugin': './redis-cli-panel/plugin.ts',
+      'redis-cpu-panel/plugin': './redis-cpu-panel/plugin.ts',
+      'redis-gears-panel/plugin': './redis-gears-panel/plugin.ts',
+      'redis-keys-panel/plugin': './redis-keys-panel/plugin.ts',
+      'redis-latency-panel/plugin': './redis-latency-panel/plugin.ts',
     },
     devtool: 'source-map',
     externals: [],
     output: {
+      libraryTarget: '',
       publicPath: `/public/plugins/${pluginName}/`,
       uniqueName: pluginName,
     },
@@ -34,18 +53,52 @@ const config = (env) =>
         exposes: {
           './plugin': './plugin.ts',
         },
-        shared: {
-          ...deps,
-          '@emotion/css': { singleton: true, requiredVersion: deps['@emotion/css'] },
-          '@emotion/react': { singleton: true, requiredVersion: deps['@emotion/react'] },
-          react: { singleton: true, requiredVersion: deps.react },
-          'react-dom': { singleton: true, requiredVersion: deps['react-dom'] },
-          '@grafana/data': { singleton: true },
-          '@grafana/e2e-selectors': { singleton: true },
-          '@grafana/runtime': { singleton: true },
-          '@grafana/schema': { singleton: true },
-          '@grafana/ui': { singleton: true },
+        shared: sharedDeps,
+      }),
+      new container.ModuleFederationPlugin({
+        name: camelCase('redis-cli-panel'),
+        filename: './redis-cli-panel/module.js',
+        remotes: {},
+        exposes: {
+          './redis-cli-panel/plugin': './redis-cli-panel/plugin.ts',
         },
+        shared: sharedDeps,
+      }),
+      new container.ModuleFederationPlugin({
+        name: camelCase('redis-cpu-panel'),
+        filename: './redis-cpu-panel/module.js',
+        remotes: {},
+        exposes: {
+          './redis-cpu-panel/plugin': './redis-cpu-panel/plugin.ts',
+        },
+        shared: sharedDeps,
+      }),
+      new container.ModuleFederationPlugin({
+        name: camelCase('redis-gears-panel'),
+        filename: './redis-gears-panel/module.js',
+        remotes: {},
+        exposes: {
+          './redis-gears-panel/plugin': './redis-gears-panel/plugin.ts',
+        },
+        shared: sharedDeps,
+      }),
+      new container.ModuleFederationPlugin({
+        name: camelCase('redis-keys-panel'),
+        filename: './redis-keys-panel/module.js',
+        remotes: {},
+        exposes: {
+          './redis-keys-panel/plugin': './redis-keys-panel/plugin.ts',
+        },
+        shared: sharedDeps,
+      }),
+      new container.ModuleFederationPlugin({
+        name: camelCase('redis-latency-panel'),
+        filename: './redis-latency-panel/module.js',
+        remotes: {},
+        exposes: {
+          './redis-latency-panel/plugin': './redis-latency-panel/plugin.ts',
+        },
+        shared: sharedDeps,
       }),
     ],
     optimization: {
