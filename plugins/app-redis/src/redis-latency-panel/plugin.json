@@ -1,5 +1,6 @@
 {
   "id": "redis-latency-panel",
+  "moduleLoader": "federated",
   "info": {
     "author": {
       "name": "RedisGrafana",

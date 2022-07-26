@@ -1,5 +1,6 @@
 {
   "id": "redis-gears-panel",
+  "moduleLoader": "federated",
   "info": {
     "author": {
       "name": "RedisGrafana",

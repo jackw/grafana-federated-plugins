@@ -1,5 +1,6 @@
 {
   "id": "redis-cpu-panel",
+  "moduleLoader": "federated",
   "info": {
     "author": {
       "name": "RedisGrafana",

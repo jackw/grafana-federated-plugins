@@ -11,7 +11,7 @@
       }
     ]
   },
-  "id": "redis-app",
+  "id": "my-org-redis-app",
   "moduleLoader": "federated",
   "includes": [
     {

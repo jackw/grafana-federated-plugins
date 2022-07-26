@@ -1,5 +1,6 @@
 {
   "id": "redis-cli-panel",
+  "moduleLoader": "federated",
   "info": {
     "author": {
       "name": "RedisGrafana",
