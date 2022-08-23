@@ -13,11 +13,11 @@ const sharedDeps = {
   '@emotion/react': { singleton: true, requiredVersion: deps['@emotion/react'] },
   react: { singleton: true, requiredVersion: deps.react },
   'react-dom': { singleton: true, requiredVersion: deps['react-dom'] },
-  '@grafana/data': { singleton: true },
-  '@grafana/e2e-selectors': { singleton: true },
-  '@grafana/runtime': { singleton: true },
-  '@grafana/schema': { singleton: true },
-  '@grafana/ui': { singleton: true },
+  '@grafana/data': { singleton: true, requiredVersion: false },
+  '@grafana/e2e-selectors': { singleton: true, requiredVersion: false },
+  '@grafana/runtime': { singleton: true, requiredVersion: false },
+  '@grafana/schema': { singleton: true, requiredVersion: false },
+  '@grafana/ui': { singleton: true, requiredVersion: false },
 };
 
 const config = (env) =>
@@ -60,7 +60,7 @@ const config = (env) =>
         filename: './redis-cli-panel/module.js',
         remotes: {},
         exposes: {
-          './redis-cli-panel/plugin': './redis-cli-panel/plugin.ts',
+          './plugin': './redis-cli-panel/plugin.ts',
         },
         shared: sharedDeps,
       }),
@@ -69,7 +69,7 @@ const config = (env) =>
         filename: './redis-cpu-panel/module.js',
         remotes: {},
         exposes: {
-          './redis-cpu-panel/plugin': './redis-cpu-panel/plugin.ts',
+          './plugin': './redis-cpu-panel/plugin.ts',
         },
         shared: sharedDeps,
       }),
@@ -78,7 +78,7 @@ const config = (env) =>
         filename: './redis-gears-panel/module.js',
         remotes: {},
         exposes: {
-          './redis-gears-panel/plugin': './redis-gears-panel/plugin.ts',
+          './plugin': './redis-gears-panel/plugin.ts',
         },
         shared: sharedDeps,
       }),
@@ -87,7 +87,7 @@ const config = (env) =>
         filename: './redis-keys-panel/module.js',
         remotes: {},
         exposes: {
-          './redis-keys-panel/plugin': './redis-keys-panel/plugin.ts',
+          './plugin': './redis-keys-panel/plugin.ts',
         },
         shared: sharedDeps,
       }),
@@ -96,7 +96,7 @@ const config = (env) =>
         filename: './redis-latency-panel/module.js',
         remotes: {},
         exposes: {
-          './redis-latency-panel/plugin': './redis-latency-panel/plugin.ts',
+          './plugin': './redis-latency-panel/plugin.ts',
         },
         shared: sharedDeps,
       }),

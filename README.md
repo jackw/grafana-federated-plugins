@@ -21,7 +21,7 @@ This repo is a PoC to prove that Grafana can load plugins using a different tech
 ### Installation
 
 - `yarn`
-- `yarn build`
+- `yarn build:all`
 
 Subsequent builds will make use of nx.dev cache to speed up build times.
 
